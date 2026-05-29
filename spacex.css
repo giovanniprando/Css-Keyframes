@@ -34,6 +34,7 @@ h2,
   z-index: -1;
   background: linear-gradient(180deg, #02040a 0%, #061129 100%);
 }
+
 @keyframes pulsarGrid {
   0%,
   100% {
@@ -310,4 +311,48 @@ h2,
   font-size: 0.9rem;
   color: #555;
   letter-spacing: 2px;
+}
+.loader-tela {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: radial-gradient(
+    circle at top,
+    #0b1a3a 0%,
+    #02040a 60%,
+    #000 100%
+  );
+  z-index: 999999;
+  animation: sumirLoader 1s ease forwards;
+  animation-delay: 3s;
+}
+.loader-bolinha {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #00d4ff;
+  box-shadow:
+    0 0 15px #00d4ff,
+    0 0 35px #00d4ff,
+    0 0 60px rgba(0, 212, 255, 0.6);
+  animation: pular 0.8s ease-in-out infinite;
+}
+@keyframes pular {
+  0% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-45px) scale(1.1);
+  }
+  100% {
+    transform: translateY(0) scale(1);
+  }
+}
+@keyframes sumirLoader {
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
 }
