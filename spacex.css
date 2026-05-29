@@ -1,165 +1,315 @@
+@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800&family=Rajdhani:wght@500;700&display=swap");
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-
 body {
+  font-family: "Rajdhani", sans-serif;
+  background-color: #030508;
+  color: #fff;
+  overflow-x: hidden;
+}
+h1,
+h2,
+.logo-brilhante {
   font-family: "Orbitron", sans-serif;
-  background: black;
-  color: white;
 }
-
-/* ===== HEADER ===== */
-.header {
-  position: fixed;
-  top: 0;
-  width: 100%;
-
-  display: flex;
-  justify-content: space-between;
-  padding: 20px 60px;
-
-  z-index: 10;
+.animacao-entrada {
+  animation: fadeInTudo 1.5s ease-out;
 }
-
-.logo {
-  letter-spacing: 3px;
-  font-weight: bold;
-}
-
-nav a {
-  color: white;
-  text-decoration: none;
-  margin-left: 20px;
-
-  position: relative;
-}
-
-nav a::after {
-  content: "";
-  position: absolute;
-  bottom: -5px;
-  left: 0;
-
-  width: 0%;
-  height: 1px;
-  background: white;
-
-  transition: 0.3s;
-}
-
-nav a:hover::after {
-  width: 100%;
-}
-
-/* ===== SEÇÕES ===== */
-.section {
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-
-  justify-content: center;
-  align-items: center;
-
-  text-align: center;
-
-  padding: 0 20px;
-}
-
-/* HERO */
-.hero {
-  background: radial-gradient(circle at top, #111, #000);
-}
-
-.hero h1 {
-  font-size: 60px;
-  letter-spacing: 4px;
-
-  animation: fadeUp 1.2s ease;
-}
-
-.hero p {
-  margin-top: 10px;
-  opacity: 0.7;
-
-  animation: fadeUp 1.4s ease;
-}
-
-button {
-  margin-top: 25px;
-  padding: 12px 25px;
-
-  background: white;
-  border: none;
-  cursor: pointer;
-
-  transition: 0.3s;
-}
-
-button:hover {
-  transform: scale(1.05);
-}
-
-/* SEÇÕES COM IMAGEM */
-.rocket,
-.missions {
-  flex-direction: row;
-  justify-content: space-around;
-  padding: 0 80px;
-}
-
-.rocket img,
-.missions img {
-  width: 500px;
-  border-radius: 10px;
-
-  animation: float 4s ease-in-out infinite;
-}
-
-.text h2 {
-  font-size: 40px;
-}
-
-.text p {
-  margin-top: 10px;
-  opacity: 0.7;
-}
-
-/* STARLINK */
-.earth {
-  background: url("https://www.spacex.com/static/images/backgrounds/starlink.jpg");
-  background-size: cover;
-  background-position: center;
-}
-
-/* FOOTER */
-footer {
-  padding: 30px;
-  text-align: center;
-  opacity: 0.5;
-}
-
-/* ANIMAÇÕES */
-@keyframes fadeUp {
+@keyframes fadeInTudo {
   from {
-    transform: translateY(20px);
     opacity: 0;
+    transform: translateY(20px);
   }
   to {
+    opacity: 1;
     transform: translateY(0);
+  }
+}
+.fundo-master {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(180deg, #02040a 0%, #061129 100%);
+}
+@keyframes pulsarGrid {
+  0%,
+  100% {
+    opacity: 0.4;
+  }
+  50% {
     opacity: 1;
   }
 }
-
-@keyframes float {
-  0% {
-    transform: translateY(0);
+.estrelas-master {
+  position: absolute;
+  width: 100%;
+  height: 200vh;
+  top: -100vh;
+  background-image: radial-gradient(#fff 1px, transparent 1px);
+  background-size: 150px 150px;
+  opacity: 0.3;
+  animation: cair 20s linear infinite;
+}
+@keyframes cair {
+  to {
+    transform: translateY(100vh);
+  }
+}
+.header-master {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 50px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+  background: rgba(3, 5, 8, 0.8);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(0, 212, 255, 0.2);
+}
+.logo-brilhante {
+  font-size: 2rem;
+  font-weight: 800;
+  letter-spacing: 5px;
+  color: #fff;
+}
+.menu-master a {
+  color: #aaa;
+  text-decoration: none;
+  margin-left: 30px;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  transition:
+    color 0.3s,
+    text-shadow 0.3s;
+}
+.menu-master a:hover,
+.menu-master a.ativo {
+  color: #00d4ff;
+  text-shadow: 0 0 10px #00d4ff;
+}
+.section {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 100px 80px;
+}
+.hero {
+  flex-direction: column;
+  text-align: center;
+  gap: 20px;
+}
+.hero-eyebrow {
+  font-family: "Orbitron", sans-serif;
+  font-size: 0.85rem;
+  letter-spacing: 6px;
+  color: #00d4ff;
+  opacity: 0.8;
+  animation: fadeInTudo 1s ease-out;
+}
+.texto-neon-master {
+  font-size: 4.5rem;
+  line-height: 1.2;
+  letter-spacing: 6px;
+  text-shadow:
+    0 0 15px #00d4ff,
+    0 0 40px #0077ff;
+  animation: pulsarNeon 2s ease-in-out alternate infinite;
+}
+@keyframes pulsarNeon {
+  from {
+    text-shadow:
+      0 0 15px #00d4ff,
+      0 0 40px #0077ff;
+  }
+  to {
+    text-shadow:
+      0 0 30px #00d4ff,
+      0 0 80px #0077ff,
+      0 0 120px rgba(0, 119, 255, 0.4);
+  }
+}
+.texto-neon-menor {
+  font-size: 5rem;
+  letter-spacing: 10px;
+}
+.hero-sub {
+  font-size: 1.4rem;
+  color: #888;
+  letter-spacing: 2px;
+  animation: fadeInTudo 1.4s ease-out;
+}
+.btn-acao {
+  display: inline-block;
+  text-decoration: none;
+  background: transparent;
+  border: 2px solid #00d4ff;
+  color: #00d4ff;
+  padding: 15px 40px;
+  font-size: 1.1rem;
+  font-family: "Orbitron", sans-serif;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  cursor: pointer;
+  animation: pulsoBtn 2s ease-in-out infinite;
+  transition:
+    background 0.3s,
+    color 0.3s,
+    transform 0.3s,
+    box-shadow 0.3s;
+}
+.btn-acao:hover {
+  background: #00d4ff;
+  color: #000;
+  transform: scale(1.08);
+  box-shadow: 0 0 30px rgba(0, 212, 255, 0.6);
+  animation: none;
+}
+.btn-secundario {
+  font-size: 0.9rem;
+  padding: 12px 30px;
+  animation-delay: 0.3s;
+}
+@keyframes pulsoBtn {
+  0%,
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 5px rgba(0, 212, 255, 0.2);
   }
   50% {
-    transform: translateY(-15px);
+    transform: scale(1.04);
+    box-shadow: 0 0 20px rgba(0, 212, 255, 0.5);
   }
+}
+.rocket,
+.missions {
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 80px;
+}
+.missions {
+  flex-direction: row-reverse;
+}
+.bloco-texto {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.tag-label {
+  font-family: "Orbitron", sans-serif;
+  font-size: 0.75rem;
+  letter-spacing: 5px;
+  color: #00d4ff;
+  opacity: 0.7;
+}
+.bloco-texto h2 {
+  font-size: 3.5rem;
+  color: #00d4ff;
+  letter-spacing: 4px;
+}
+.bloco-texto p {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  color: #ccc;
+  max-width: 480px;
+}
+.bloco-imagem {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.img-zoom-wrapper {
+  overflow: hidden;
+  border-radius: 16px;
+  box-shadow: 0 20px 60px rgba(0, 212, 255, 0.1);
+  transition: box-shadow 0.4s;
+}
+.img-zoom-wrapper:hover {
+  box-shadow: 0 30px 80px rgba(0, 212, 255, 0.3);
+}
+.img-flutuante {
+  width: 100%;
+  max-width: 520px;
+  display: block;
+  border-radius: 16px;
+  animation: flutuarMaster 6s ease-in-out infinite;
+  transition: transform 0.5s ease;
+}
+.img-zoom-wrapper:hover .img-flutuante {
+  transform: scale(1.08) translateY(-10px);
+  animation-play-state: paused;
+}
+
+@keyframes flutuarMaster {
+  0%,
   100% {
     transform: translateY(0);
   }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+.earth {
+  position: relative;
+  flex-direction: column;
+  text-align: center;
+  gap: 25px;
+  background-image: url("https://static.nationalgeographicbrasil.com/files/styles/image_3200/public/starlinkgen2earth.jpg?w=1900&h=1425");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+.earth-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(3, 5, 8, 0.75) 0%,
+    rgba(6, 17, 41, 0.6) 50%,
+    rgba(3, 5, 8, 0.85) 100%
+  );
+}
+.earth-conteudo {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+.earth-conteudo p {
+  font-size: 1.3rem;
+  color: #ccc;
+  letter-spacing: 1px;
+  max-width: 500px;
+}
+.footer-master {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 40px 20px;
+  border-top: 1px solid rgba(0, 212, 255, 0.15);
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.footer-logo {
+  font-size: 1.2rem;
+  letter-spacing: 8px;
+  opacity: 0.5;
+}
+
+.footer-master p {
+  font-size: 0.9rem;
+  color: #555;
+  letter-spacing: 2px;
 }
