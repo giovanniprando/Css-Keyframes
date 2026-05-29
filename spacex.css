@@ -301,13 +301,11 @@ h2,
   border-top: 1px solid rgba(0, 212, 255, 0.15);
   background: rgba(0, 0, 0, 0.4);
 }
-
 .footer-logo {
   font-size: 1.2rem;
   letter-spacing: 8px;
   opacity: 0.5;
 }
-
 .footer-master p {
   font-size: 0.9rem;
   color: #555;
